@@ -5,8 +5,10 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.riezki.chucknorisapp.presenter.screen.MainScreen
 import com.riezki.chucknorisapp.presenter.ui.theme.ChuckNorisAppTheme
 import com.riezki.chucknorisapp.presenter.viewmodel.MainViewModel
@@ -27,6 +29,9 @@ class MainActivity : ComponentActivity() {
                     ViewModelFactory.getInstance(this)
                 }
                 val jokesState by viewModel.jokes.collectAsState()
+                LaunchedEffect(key1 = Unit) {
+                    viewModel.getJokes("animal")
+                }
                 MainScreen(
                     jokesState = jokesState,
                     queryState = viewModel.query,

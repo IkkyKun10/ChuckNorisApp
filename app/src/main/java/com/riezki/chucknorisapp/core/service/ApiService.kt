@@ -12,7 +12,7 @@ interface ApiService {
 
     @GET("jokes/search?")
     suspend fun getJokes(
-        @Query("query") query: String = "animal"
+        @Query("query") query: String
     ) : JokesDto
 
     companion object {
