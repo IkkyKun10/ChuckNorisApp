@@ -55,7 +55,7 @@ fun MainScreen(
     Column(
         modifier = Modifier
             .padding(top = 16.dp)
-            .fillMaxSize()
+            .fillMaxSize(),
     ) {
         OutlinedTextField(
             value = queryState,
@@ -78,13 +78,13 @@ fun MainScreen(
             ),
             leadingIcon = {
                 Icon(imageVector = Icons.Filled.Search, contentDescription = "Search")
-            }
+            },
         )
         LazyColumn(
             contentPadding = PaddingValues(16.dp),
             modifier = modifier,
             verticalArrangement = Arrangement.spacedBy(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             if (jokesState is MainStateUi.Loading) {
                 item {
