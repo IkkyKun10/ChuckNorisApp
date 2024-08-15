@@ -47,6 +47,7 @@ fun MainScreen(
     onQueryChange: (String) -> Unit,
     modifier: Modifier = Modifier,
     onGetJokes: (String) -> Unit,
+    onItemClicked: (JokesDomain) -> Unit,
 ) {
     val context = LocalContext.current
     val keyboardController = LocalSoftwareKeyboardController.current
@@ -109,6 +110,7 @@ fun MainScreen(
                             "this item with id ${it.id}",
                             Toast.LENGTH_SHORT
                         ).show()
+                        onItemClicked(it)
                     }
                 }
 
@@ -143,6 +145,7 @@ fun MainScreenPrev() {
         ),
         queryState = "",
         onQueryChange = {},
-        onGetJokes = {}
+        onGetJokes = {},
+        onItemClicked = {}
     )
 }
